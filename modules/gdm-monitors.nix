@@ -1,0 +1,35 @@
+_: let
+  monitorsXml = ''
+    <monitors version="2">
+      <configuration>
+        <layoutmode>logical</layoutmode>
+        <logicalmonitor>
+          <x>0</x>
+          <y>0</y>
+          <scale>2</scale>
+          <primary>yes</primary>
+          <transform>
+            <rotation>right</rotation>
+            <flipped>no</flipped>
+          </transform>
+          <monitor>
+            <monitorspec>
+              <connector>DSI-1</connector>
+              <vendor>unknown</vendor>
+              <product>unknown</product>
+              <serial>unknown</serial>
+            </monitorspec>
+            <mode>
+              <width>1800</width>
+              <height>2880</height>
+              <rate>120.000</rate>
+            </mode>
+          </monitor>
+        </logicalmonitor>
+      </configuration>
+    </monitors>
+
+  '';
+in {
+  environment.etc."xdg/monitors.xml".text = monitorsXml;
+}
