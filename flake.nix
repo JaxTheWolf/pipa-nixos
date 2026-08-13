@@ -91,5 +91,9 @@
       pipa = self.nixosModules.default;
       xiaomi-pad-6 = self.nixosModules.default;
     };
+
+    checks = forAllSystems (system: {
+      baseSystem = baseToplevel;
+    });
   };
 }
