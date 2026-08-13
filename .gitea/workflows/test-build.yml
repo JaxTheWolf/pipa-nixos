@@ -1,0 +1,22 @@
+
+name: Nix flake check on commit
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  nix-flake-check:
+    runs-on: nix-native
+    env:
+      PATH: /home/gitea-runner/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/bin
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check the flake
+        run: |
+          nix flake check
