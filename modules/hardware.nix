@@ -46,6 +46,14 @@
       pkgs.pipa-firmware
     ];
 
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        libva
+        libva-utils
+      ];
+    };
+
     enableRedistributableFirmware = lib.mkDefault true;
     deviceTree.name = lib.mkDefault "qcom/sm8250-xiaomi-pipa.dtb";
   };
