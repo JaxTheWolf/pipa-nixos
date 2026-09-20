@@ -1,11 +1,11 @@
 final: _prev: let
   pipaKernelVersion = "7.1.7";
 
-  pipaKernelSrc = final.fetchFromGitLab {
+  pipaKernelSrc = final.fetchFromGitHub {
     owner = "rmuxnet";
-    repo = "linux";
-    rev = "b8c2279dd1fff1a78f013a7620693993564cabe7";
-    hash = "sha256-jgZEi3KeBU4gGQpUy1MR2tdG60WxIo4puB0AZg6DFes=";
+    repo = "linux-7.xx";
+    rev = "f6344729eb71c1cb0c4189827c679502f4cd85a8";
+    hash = "sha256-5PMxfIWJ03xHrGlG8/g7pSf0LVAR2pmUsG2070oJXnw=";
   };
 in {
   pipa-firmware = final.callPackage ./firmware.nix {};
