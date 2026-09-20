@@ -7,7 +7,7 @@ stdenvNoCC.mkDerivation {
   version = "1.1-2";
 
   src = fetchFromGitea {
-    domain = "gt.awroo.fun";
+    domain = "gt.awruff.fun";
     owner = "romanl";
     repo = "xiaomi-pipa-firmware";
     rev = "842d35beffeda8c6d1b0e611b335543bf0e6b41e";
