@@ -10,6 +10,8 @@
     cp -a ${rawSrc} $out
     chmod -R +w $out
 
+    sed -i "13i #include <linux/hex.h>" $out/drivers/input/keyboard/nanosic_803.c
+
     cp ${./pipa.config} $out/arch/arm64/configs/pipa.config
     patchShebangs $out
   '';
