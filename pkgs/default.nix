@@ -1,5 +1,5 @@
 final: _prev: let
-  pipaKernelVersion = "7.2.0";
+  pipaKernelVersion = "7.1.7";
 
   pipaKernelSrc = final.fetchFromGitHub {
     owner = "rmuxnet";
