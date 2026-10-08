@@ -10,7 +10,7 @@ on:
 
 jobs:
   nix-flake-check:
-    runs-on: nix-native
+    runs-on: nix
     env:
       PATH: /home/gitea-runner/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/bin
     steps:
@@ -19,4 +19,4 @@ jobs:
 
       - name: Check the flake
         run: |
-          nix flake check
+          nix NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1 nix flake check --all-systems --impure
