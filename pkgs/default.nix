@@ -2,10 +2,10 @@ final: _prev: let
   pipaKernelVersion = "7.1.7";
 
   pipaKernelSrc = final.fetchFromGitHub {
-    owner = "rmuxnet";
-    repo = "linux-7.xx";
-    rev = "f6344729eb71c1cb0c4189827c679502f4cd85a8";
-    hash = "sha256-5PMxfIWJ03xHrGlG8/g7pSf0LVAR2pmUsG2070oJXnw=";
+    owner = "rr1111";
+    repo = "linux-pipa";
+    rev = "4e4b30b6533c498a2a87061e455330afa20dd3b6";
+    hash = "sha256-B7FEK+AyDCs5m2X9yNiLwKoTsHhdUxUBkgImUn1bk/k=";
   };
 in {
   pipa-firmware = final.callPackage ./firmware.nix {};
