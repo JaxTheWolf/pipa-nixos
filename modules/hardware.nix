@@ -10,26 +10,31 @@
   boot = {
     initrd = {
       availableKernelModules = [
-        "panel_novatek_nt36532"
+        "hid_generic"
+        "icc_osm_l3"
         "msm"
         "nanosic_803"
-        "usbhid"
+        "panel_novatek_nt36532"
+        "phy_qcom_qmp_pcie"
+        "phy_qcom_qmp_ufs"
         "pinctrl_sm8250"
         "ufs_qcom"
         "ufshcd_core"
         "ufshcd_pltfrm"
-        "icc_osm_l3"
-        "phy_qcom_qmp_ufs"
-        "phy_qcom_qmp_pcie"
+        "usb_storage"
+        "usbhid"
       ];
 
       extraFirmwarePaths = [
-        "novatek/nt36532_tianma.bin"
         "novatek/nt36532_csot.bin"
-        "qcom/a650_sqe.fw"
+        "novatek/nt36532_tianma.bin"
         "qcom/a650_gmu.bin"
+        "qcom/a650_sqe.fw"
         "qcom/a650_zap.mbn"
       ];
+
+      includeDefaultModules = false;
+      allowMissingModules = true;
     };
 
     kernelParams = [
