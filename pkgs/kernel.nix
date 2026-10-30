@@ -9,9 +9,12 @@
   patchedSrc = runCommand "linux-src-pipa" {} ''
     cp -a ${rawSrc} $out
     chmod -R +w $out
-
-    cp ${./pipa.config} $out/arch/arm64/configs/pipa.config
     patchShebangs $out
+    cp ${./pipa.config} $out/arch/arm64/configs/pipa.config
+
+    # Inject missing GPIO consumer and hex helper headers into nanosic_803.c
+    sed -i '/#include <linux\/i2c.h>/a #include <linux\/gpio\/consumer.h>\n#include <linux\/hex.h>' \
+      $out/drivers/input/keyboard/nanosic_803.c
   '';
 in
   buildLinux (args
@@ -23,6 +26,7 @@ in
       ignoreConfigErrors = true;
       enableCommonConfig = false;
       stripDebugList = ["vmlinux" "lib/modules"];
+      autoModules = false;
 
       structuredExtraConfig = with lib.kernel; {
         ARCH_ACTIONS = no;

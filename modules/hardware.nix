@@ -21,6 +21,7 @@
         "icc_osm_l3"
         "phy_qcom_qmp_ufs"
         "phy_qcom_qmp_pcie"
+        "g_serial"
       ];
 
       extraFirmwarePaths = [
@@ -30,10 +31,13 @@
         "qcom/a650_gmu.bin"
         "qcom/a650_zap.mbn"
       ];
+
+      includeDefaultModules = false;
+      allowMissingModules = true;
     };
 
     kernelParams = [
-      "console=tty0"
+      "console=ttyGS0,115200n8"
       "fbcon=rotate:1"
       "rootwait"
     ];
