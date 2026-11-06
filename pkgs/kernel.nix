@@ -29,6 +29,8 @@ in
       autoModules = false;
 
       structuredExtraConfig = with lib.kernel; {
+        INTERCONNECT_QCOM_OSM_L3 = yes;
+
         ARCH_ACTIONS = no;
         ARCH_SUNXI = no;
         ARCH_AMLOGIC = no;
